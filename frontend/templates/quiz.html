@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindScope - Quiz</title>
+    <link rel="stylesheet" href="../static/quiz.css">
+</head>
+
+<body>
+    <div class="stars"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const starContainer = document.querySelector(".stars");
+    
+            for (let i = 0; i < 100; i++) {  // Number of stars
+                let star = document.createElement("div");
+                star.classList.add("star");
+    
+                let size = Math.random() * 4 + 2; // Star size between 1px - 4px
+                let xPosition = Math.random() * window.innerWidth;
+                let yPosition = Math.random() * window.innerHeight;
+                let duration = Math.random() * 5 + 3; // Different twinkle speeds
+                let delay = Math.random() * 5; // Random delay for variation
+                let moveDuration = Math.random() * 10 + 5; // Different movement speeds
+    
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${xPosition}px`;
+                star.style.top = `${yPosition}px`;
+                star.style.animationDuration = `${duration}s, ${moveDuration}s`;
+                star.style.animationDelay = `-${delay}s`;
+    
+                starContainer.appendChild(star);
+            }
+        });
+    </script>
+    
+    
+
+    <div class="quiz-container">
+        <h1>Answer the Questions</h1>
+        <form action="/result" method="POST">
+            <input type="hidden" name="name" value="{{ name }}">
+            <input type="hidden" name="age" value="{{ age }}">
+            <input type="hidden" name="gender" value="{{ gender }}">
+            <input type="hidden" name="hand" value="{{ hand }}">
+            <ol class="question-list">
+                {% for question in questions %}
+                <li>
+                    <p class="question">{{ question }}</p>
+                    <div class="options">
+                        <label class="radio-option">
+                            <input type="radio" name="q{{ loop.index }}" value="1" required>
+                            <span>Strongly Disagree</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="q{{ loop.index }}" value="2">
+                            <span>Disagree</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="q{{ loop.index }}" value="3">
+                            <span>Neutral</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="q{{ loop.index }}" value="4">
+                            <span>Agree</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="q{{ loop.index }}" value="5">
+                            <span>Strongly Agree</span>
+                        </label>
+                    </div>
+                </li>
+                {% endfor %}
+            </ol>
+            <button type="submit" class="interactive-button">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

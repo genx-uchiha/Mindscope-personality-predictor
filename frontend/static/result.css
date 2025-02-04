@@ -1,0 +1,197 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: rgb(39,0,65);
+    background: linear-gradient(330deg, rgba(39,0,65,1) 0%, rgb(83, 0, 108) 27%, rgb(74, 0, 120) 50%, rgb(84, 0, 97) 73%, rgba(31,0,46,1) 100%);
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative; /* Ensures stars stay in the background */
+}
+
+/* Starry Background */
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Keeps stars behind everything */
+    pointer-events: none; /* Prevents interaction */
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 3s infinite ease-in-out, moveStars 10s linear infinite;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+@keyframes moveStars {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100vh); }
+}
+
+/* Main Container */
+.container {
+    position: relative; /* Ensures content is above the stars */
+    background: white;
+    color: #320070; /* Dark Purple Text */
+    border-radius: 15px;
+    padding: 25px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1; /* Keeps it above the stars */
+}
+
+
+/* Header Styles */
+header h1 {
+    color: #6a1b9a; /* Medium Purple */
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+/* Section Headers */
+h2 {
+    color: #4a148c; /* Deep Purple */
+    font-size: 1.5rem;
+    margin-top: 20px;
+    text-align: center;
+}
+
+h3 {
+    color: #6a1b9a; /* Medium Purple */
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* User Info */
+.user-info p {
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+/* Personality Breakdown */
+.personality-breakdown ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.personality-breakdown ul li {
+    font-size: 1rem;
+    background: #e1bee7; /* Light Purple */
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: left;
+}
+
+/* Result Summary */
+.result-summary {
+    background: #ede7f6; /* Soft Purple */
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.result-summary .dominant-trait,
+.result-summary .weakest-trait {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #31016c;
+}
+
+.result-summary .highlight {
+    color: #4a148c; /* Deep Purple */
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Personality Chart */
+.personality-chart img.chart {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 20px;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons / Links */
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    background: linear-gradient(135deg, #3e0043, #885dda);
+    color: white;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #885dda, #3e0043);
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        width: 95%;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    h2, h3 {
+        font-size: 1.2rem;
+    }
+
+    .personality-breakdown ul li {
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}
+
+/* Chart Container Styles */
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.chart {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}

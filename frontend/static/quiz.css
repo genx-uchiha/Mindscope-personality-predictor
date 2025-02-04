@@ -1,0 +1,209 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: rgb(39,0,65);
+    background: linear-gradient(330deg, rgba(39,0,65,1) 0%, rgba(101,1,131,1) 27%, rgba(87,0,140,1) 50%, rgba(91,0,106,1) 73%, rgba(31,0,46,1) 100%);
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    color: #333;
+    overflow-x: hidden; 
+    position: relative; /* Ensures stars stay in the background */
+}
+
+/* Starry Background */
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Keeps stars behind everything */
+    pointer-events: none; /* Prevents interaction */
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 3s infinite ease-in-out, moveStars 10s linear infinite;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+@keyframes moveStars {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100vh); }
+}
+
+/* Quiz Container */
+.quiz-container {
+    position: relative; /* Keeps content above stars */
+    max-width: 600px;
+    margin: 20px auto;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    z-index: 1; /* Ensures content stays above stars */
+}
+
+
+/* Header */
+h1 {
+    color: #470077;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form */
+form {
+    margin-top: 10px;
+}
+
+/* Question List */
+.question-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.question-list li {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Questions */
+.question {
+    font-size: 1.2rem; /* Increased font size */
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #4a148c; /* Dark purple for emphasis */
+}
+/* Options */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 5px;
+}
+
+.radio-option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.radio-option:hover {
+    color: #6a1b9a;
+}
+
+.radio-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radio-option span {
+    display: inline-block;
+    padding-left: 35px;
+    line-height: 20px;
+    position: relative;
+}
+
+.radio-option span::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #6a1b9a;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.radio-option input[type="radio"]:checked + span::before {
+    background-color: #6a1b9a;
+    border-color: #6a1b9a;
+}
+
+.radio-option span::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.2s ease-in-out;
+}
+
+.radio-option input[type="radio"]:checked + span::after {
+    transform: translateY(-50%) scale(1);
+}
+
+/* Interactive Button */
+.interactive-button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #3e0043, #885dda);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.interactive-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #885dda, #3e0043);
+}
+
+.interactive-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #885dda, #3e0043);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .quiz-container {
+        padding: 15px 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .question {
+        font-size: 0.9rem;
+    }
+
+    .interactive-button {
+        width: 100%;
+    }
+}
