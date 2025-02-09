@@ -19,7 +19,7 @@ app = Flask(
 
 
 MODEL_PATH = './model/xgb_model.pkl'
-SCALER_PATH = 'model/scaler_xgb.pkl'
+SCALER_PATH = './model/scaler_xgb.pkl'
 QUESTIONS_PATH = 'questions.txt'
 RESULTS_FILE = 'personality_results.xlsx'
 
