@@ -78,25 +78,34 @@ def create_pie_chart(result):
 #Overall personality types
 def calculate_personality(result):
     avg_score = np.mean(list(result.values()))
-
-    if avg_score >= 85:
-        name = "Bold & Visionary Thinker"
-        description = "🌟 Trailblazer 🚀 - You inspire others with your confidence and ability to take on challenges fearlessly."
+    
+    if avg_score >= 90:
+        name = "Trailblazing Visionary"
+        description = "🚀 High Openness - You are an innovative thinker who embraces new ideas fearlessly."
+    elif avg_score >= 80:
+        name = "Determined Achiever"
+        description = "🔥 High Conscientiousness - You are driven, disciplined, and unstoppable in your pursuit of success."
     elif avg_score >= 70:
-        name = "Driven & Strong Personality"
-        description = "💪 Go-Getter - Highly motivated and determined, you push past obstacles to achieve success."
-    elif avg_score >= 55:
-        name = "Confident & Inspiring"
-        description = "🌟 Charismatic Leader - A natural leader who uplifts those around you with ease."
+        name = "Energetic Leader"
+        description = "🌟 High Extraversion - A natural leader who thrives in social settings and inspires those around you."
+    elif avg_score >= 60:
+        name = "Balanced Strategist"
+        description = "🎯 A blend of traits - You are adaptable and thoughtful, able to approach life with stability and logic."
+    elif avg_score >= 50:
+        name = "Compassionate Diplomat"
+        description = "💖 High Agreeableness - You foster harmony and bring people together with empathy and kindness."
     elif avg_score >= 40:
-        name = "Well-Rounded & Adaptable"
-        description = "🎯 Balanced & Grounded - Able to adapt to different situations and bring stability wherever you go."
+        name = "Curious Explorer"
+        description = "🔍 Moderate Openness - You enjoy learning and discovering new perspectives, always questioning the status quo."
     elif avg_score >= 30:
-        name = "Reflective & Thoughtful"
-        description = "🤔 Deep Thinker - Introspective and thoughtful, you often analyze things deeply."
+        name = "Introspective Analyst"
+        description = "🤔 High Neuroticism - You analyze situations deeply, often reflecting on emotions and motivations."
+    elif avg_score >= 20:
+        name = "Gentle Soul"
+        description = "🌿 High Agreeableness & Low Extraversion - You are a peaceful presence, offering support and understanding to those in need."
     else:
-        name = "Calm & Peaceful Personality"
-        description = "🌿 Gentle Soul - Empathetic and kind, you are a comforting presence to those around you."
+        name = "Laid-Back Observer"
+        description = "😌 Low Conscientiousness & Extraversion - You go with the flow, preferring to watch and reflect rather than take charge."
     
     return name, description
 
