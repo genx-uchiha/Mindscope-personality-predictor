@@ -121,7 +121,7 @@ h3 {
 }
 
 .result-summary .highlight {
-    color: #4a148c; /* Deep Purple */
+    color: #4a148c; 
     font-weight: bold;
     font-size: 1.1rem;
 }
@@ -179,7 +179,6 @@ h3 {
     }
 }
 
-/* Chart Container Styles */
 .chart-container {
     display: flex;
     justify-content: center;
@@ -194,4 +193,12 @@ h3 {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
+}
+
+.note{
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    font-size: 0.8rem;
+    color: #494849;
 }
